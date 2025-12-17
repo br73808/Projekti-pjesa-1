@@ -363,3 +363,201 @@ footer{
 .card p a:hover{
     text-decoration: underline;
 }
+.kontakt-section{
+    padding: 60px 20px;
+    background: #f4f6f8;
+    text-align: center;
+}
+
+.kontakt-section h2{
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+    color: #076bbd;
+}
+
+.kontakt-section p{
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.kontakt-container{
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.kontakt-form{
+    background: white;
+    padding: 30px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.kontakt-form input, .kontakt-form textarea{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.kontakt-form button{
+    width: 100%;
+    padding: 12px;
+    background: #076bbd;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+}
+
+.kontakt-form button:hover{
+    background: #004a80;
+}
+
+.kontakt-info{
+    width: 300px;
+    text-align: left;
+}
+
+.kontakt-info h3{
+    margin-bottom: 20px;
+    color: #076bbd;
+}
+
+.kontakt-info p{
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.produktet-section{
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.produktet-section h2{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.produktet-section p{
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.produktet-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.produktet-card{
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.produktet-card:hover{
+    transform: translateY(-5px);
+}
+
+.produktet-card img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.produktet-card h3{
+    margin: 15px 0 5px;
+}
+
+.produktet-card span{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #007bff;
+}
+
+.produktet-card button{
+    padding: 10px 20px;
+    border: none;
+    background: #076bbd;
+    color: white;    
+    border-radius: 5px;
+}
+
+.produktet-card button:hover{
+    background: #076bbd;
+}
+
+.shporta-section{
+    padding: 60px 10%;
+}
+
+.shporta-section h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.shporta-container{
+    max-width: 800px;
+    margin: auto;
+}
+
+.shporta-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.shporta-item img{
+    width: 80px;
+    border-radius: 5px;
+}
+
+.shporta-item h4{
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.shporta-item p{
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.remove{
+    background: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.shporta-total{
+    text-align: right;
+    margin-top: 30px;
+}
+
+.chckout{
+    padding: 12px 25px;
+    background: #076bbd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.chckout:hover{
+    background: #0056b3;
+}

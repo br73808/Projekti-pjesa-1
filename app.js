@@ -31,12 +31,13 @@ if(loginForm){
     });
 }
 
-cont regjisterFrom = document.getElementById("registerForm");
-if(regjisterFrom){
+const registerForm = document.getElementById("registerForm");
+if(registerForm){
     const emri = document.getElementById("emri");
     const mbiemri = document.getElementById("mbiemri");
     const emailReg = document.getElementById("email");
-     const date = document.getElementById("date");
+    const passwordReg = document.getElementById("password");
+    const date = document.getElementById("date");
     const emriError = document.getElementById("emriError");
     const mbiemriError = document.getElementById("mbiemriError");
     const emailError = document.getElementById("emailError");
@@ -49,7 +50,7 @@ if(regjisterFrom){
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{4,}$/;
     const passwordRe = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
 
-    regjisterFrom.addEventListener("submit", fuction(e)){
+    registerForm.addEventListener("submit", function(e){
         e.preventDefault();
         emriError.textContent = "";
         mbiemriError.textContent = "";
@@ -59,7 +60,7 @@ if(regjisterFrom){
         gjiniaError.textContent = "";
         formSuccess.textContent = "";
 
-         let valid = true;
+        let valid = true;
         if(!nameRe.test(emri.value.trim())){
             emriError.textContent = "Emri i pavlefshëm (min 2 shkronja)";
             valid = false;
@@ -92,5 +93,6 @@ if(regjisterFrom){
         }
     });
 }
+
 
 

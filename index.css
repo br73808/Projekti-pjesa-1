@@ -218,3 +218,135 @@ body{
     transform: scale(1.05);
 }
 
+.footer-top{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: 220px;
+}
+
+.pjesa-foterit{
+    flex: 1;
+    min-width: 220px;
+}
+
+.pjesa-foterit h2, .pjesa-foterit h3{
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.pjesa-foterit p{
+    font-size: 14px;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+
+.social-icons{
+    display: flex;
+    margin-top: 10px;
+}
+
+.social-icons a{
+    color: white;
+    font-size: 26px;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover{
+    color: #76b6ff;
+    transform: translateY(-5px);
+}
+
+.pjesa-foterit{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 13px;
+    color: #ccc;
+}
+
+.card{
+    width: 100%;
+    max-width: 380px;
+    background: white;
+    padding: 45px 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    margin: 80px auto;
+}
+
+.card h2{
+    text-align: center;
+    color: #0b63ce;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+.card label{
+    font-size: 14px;
+    color: #333;
+}
+
+.input{
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0 18px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.input:focus{
+    outline: none;
+    border-color: #0b63ce;
+}
+
+.card button{
+    width: 100%;
+    padding: 14px;
+    background: #0b63ce;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card button:hover{
+    background: #094ea3;
+}
+
+.error{
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.success{
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.card p{
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.card p a{
+    color: #6a0dad;.
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card p a:hover{
+    text-decoration: underline;
+}

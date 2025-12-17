@@ -21,8 +21,17 @@
         <h2>Kyçu</h2>
         <form id="loginForm" novalidate>
             <label for="email">Email</label>
-            <input
+            <input type="email" id="email" class="input">
+            <div id="emailError" class="error" aria-live="polite"></div>
+            <label for="password">Password</label>
+            <input type="password" id="password" class="input">
+            <div id="passwordError" class="error" aria-live="polite"></div>
+
+            <button type="submit">Login</button>
+            <div id="formSuccess" class="success" role="status" aria-live="polite"></div>
+            <p>Nuk ke llogari? <a href="regjistrohu.html">Regjistrohu</a></p>
         </form>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -1,9 +1,12 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElektroHome</title>
+    <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -20,37 +23,29 @@
         </ul>
     </nav>
 
-    <section class="produktet-section">
-        <h2>Produktet tona</h2>
-        <p>Zgjidhni nga produktet më cilësore për shtëpinë tuaj</p>
+    <section class="kontakt-section">
+        <h2>Na Kontaktoni</h2>
+        <p>Na shkruani dhe do t'ju përgjigjemi sa më shpejt</p>
+    <div class="kontakt-container">
+        <form class="kontakt-form">
+            <input type="text" placeholder="Emri dhe Mbiemri" required>
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Subjekti" required>
+            <textarea placeholder="Mesazhi juaj..." rows="5" required></textarea>
+            <button type="submit">Dërgo Mesazhin</button>
+        </form>
 
-        <div class="produktet-container">
-            <div class="produktet-card">
-                <img src="images (2).jpg" alt="Kamerë Sigurie">
-                <h3>Kamerë Sigurie</h3>
-                <p>Rezulcion HD, monitorim 24/7</p>
-                <span>120€</span>
-                <button>Shto në shportë</button>
-            </div>
-            <div class="produktet-card">
-                <img src="images (3).jpg" alt="Kamerë Sigurie">
-                <h3>Kamerë Sigurie</h3>
-                <p>Rezulcion HD</p>
-                <span>150€</span>
-                <button>Shto në shportë</button>
-            </div>
-            <div class="produktet-card">
-                <img src="images (4).jpg" alt="Kamerë Sigurie">
-                <h3>Alarm Shtëpie</h3>
-                <p>Sistem modern sigurie</p>
-                <span>180€</span>
-                <button>Shto në shportë</button>
-            </div>
+        <div class="kontakt-info">
+            <h3>Informacionet tona</h3>
+            <p><i class="fa-solid fa-envelope"></i> info@elektrahome.com</p>
+            <p><i class="fa-solid fa-phonee"></i> +383 44 000 800</p>
+            <p><i class="fa-solid fa-location-dot"></i>Str.Adem Jashari, Ferizaj, Kosovë</p>
         </div>
-    </section>
+    </div>
+ </section>
 
-    <footer>
-        <div class="footer-top">
+ <footer>
+    <div class="footer">
         <div class="pjesa-foterit">
             <h2>ElektroHome</h2>
             <p>Zgjidhja juaj për siguri moderne dhe profesionale</p>
@@ -58,8 +53,8 @@
         <div class="pjesa-foterit">
             <h3>Kontakti</h3>
             <p><i class="fa-solid fa-envelope"></i> info@elektrahome.com</p>
-            <p><i class="fa-solid fa-phone"></i> +383 44 000 800</p>
-            <p><i class="fa-solid fa-location-dot"></i> Ferizaj,Kosovë</p>
+            <p><i class="fa-solid fa-phonee"></i> +383 44 000 800</p>
+            <p><i class="fa-solid fa-location-dot"></i>Str.Adem Jashari, Ferizaj, Kosovë</p>
         </div>
         <div class="pjesa-foterit">
             <h3>Na ndiqni</h3>
@@ -70,10 +65,10 @@
             </div>
         </div>
     </div>
-        <div class="pjesa-foteritt">
-            © 2025 ElektroHome. Të gjitha të drejtat e rezervuara
-        </div>
-    </footer>
+    <div class="pjesa-foterit">
+        © 2025 ElektroHome. Të gjitha të drejtat e rezervuara
+    </div>
+ </footer>
     
 </body>
-</html>
+</html> 

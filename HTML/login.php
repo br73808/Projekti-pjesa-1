@@ -1,6 +1,3 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,17 +7,10 @@
      <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">ElektroHome</div>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">Rreth Nesh</a></li>
-            <li><a href="produktet.html" class="active">Produktet</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="shporta.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-        </ul>
-    </nav>
+  <?php
+    require_once 'header.php'
+?>
+
 
     <div class="card">
         <h2>Kyçu</h2>

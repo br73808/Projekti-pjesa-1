@@ -44,31 +44,9 @@
     </div>
  </section>
 
- <footer>
-    <div class="footer">
-        <div class="pjesa-foterit">
-            <h2>ElektroHome</h2>
-            <p>Zgjidhja juaj për siguri moderne dhe profesionale</p>
-        </div>
-        <div class="pjesa-foterit">
-            <h3>Kontakti</h3>
-            <p><i class="fa-solid fa-envelope"></i> info@elektrahome.com</p>
-            <p><i class="fa-solid fa-phonee"></i> +383 44 000 800</p>
-            <p><i class="fa-solid fa-location-dot"></i>Str.Adem Jashari, Ferizaj, Kosovë</p>
-        </div>
-        <div class="pjesa-foterit">
-            <h3>Na ndiqni</h3>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="pjesa-foterit">
-        © 2025 ElektroHome. Të gjitha të drejtat e rezervuara
-    </div>
- </footer>
+<?php
+    require_once 'footer.php'
+?>
     
 </body>
 </html> 

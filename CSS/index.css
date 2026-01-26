@@ -550,7 +550,7 @@ footer{
     margin-top: 30px;
 }
 
-.chckout{
+.checkout{
     padding: 12px 25px;
     background: #076bbd;
     color: white;
@@ -558,7 +558,7 @@ footer{
     border-radius: 5px;
 }
 
-.chckout:hover{
+.checkout:hover{
     background: #0056b3;
 }
 .about-section{

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<body>
 <?php
     require_once 'header.php'
 ?>
@@ -15,14 +16,14 @@
         <div class="shporta-container">
             <div class="shporta-item">
                 <img src="images (2).jpg">
-            </div>
+            
             <div>
                 <h4>Kamerë Sigurie</h4>
                 <p>120€</p>
             </div>
             <button class="remove">✖</button>
-
-            <div class="cart-item">
+            </div>
+            <div class="shporta-item">
                 <img src="images (1).jpg">
                 <div>
                     <h4>Alarm Shtëpie</h4>
@@ -30,7 +31,7 @@
                 </div>
                 <button class="remove">✖</button>
             </div>
-            <div class="cart-total">
+            <div class="shporta-total">
                 <h3>Totali: 300€</h3>
                 <button class="checkout">Vazhdo Pagesën</button>
             </div>

@@ -76,6 +76,30 @@
                 <span>180€</span>
                 <button>Shto në shportë</button>
             </div>
+
+            <div class="produktet-card">
+                <img src="../photos/images (10).jpg" alt="Kamerë Sigurie">
+                <h3>Alarm Shtëpie</h3>
+                <p>Hikivision AX PRO Wireless Alarm System</p>
+                <span>110€</span>
+                <button>Shto në Shportë</button>
+            </div>
+
+            <div class="produktet-card">
+                <img src="../photos/images 112.jpg" alt="Kamerë Sigurie">
+                <h3>Alarm Shtëpie</h3>
+                <p>Hikivision Wireless Alarm</p>
+                <span>180€</span>
+                <button>Shto në Shportë</button>
+            </div>
+
+            <div class="produktet-card">
+                <img src="../photos/images 111.jpg" alt="Kamerë Sigurie">
+                <h3>Alarm Shtëpie</h3>
+                <p>Hikivision Smoke Alarm</p>
+                <span>60€</span>
+                  <button>Shto në shportë</button>
+             </div>
         </div>
     </section>
 

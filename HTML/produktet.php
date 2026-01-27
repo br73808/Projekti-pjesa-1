@@ -13,6 +13,16 @@
                 <span>120€</span>
                 <button>Shto në shportë</button>
             </div>
+
+            <div class="produktet-card">
+                <img src="../photos/images 22.jpg" alt="Kamerë Sigurie">
+                <h3>Kamerë Sigurie</h3>
+                <p>Rezulcion HD</p>
+                <span>150€</span>
+                <button>Shto në shportë</button>
+            </div>
+
+
             <div class="produktet-card">
                 <img src="../photos/images (3).jpg" alt="Kamerë Sigurie">
                 <h3>Kamerë Sigurie</h3>

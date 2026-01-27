@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="slide">
-            <img src="HikVision_1.jpg" alt="Kamera">
+            <img src="55.jpg" alt="Kamera">
             <div class="slidee">
                 <h1>Teknologji e avancuar</h1>
                 <p>Kamera dhe pajisje për mbrojtje të plotë</p>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="slide">
-            <img src="HD-IP-Package.webp" alt="Kamera">
+            <img src="hikivision-CCTV.jpg" alt="Kamera">
             <div class="slidee">
                 <h1>Mbështetje 24/7</h1>
                 <p>Gjithmon në dispozicion për çdo pyetje</p>

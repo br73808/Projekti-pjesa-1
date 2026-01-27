@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
-    <?php
-    require_once 'header.php'
+<?php
+    require_once 'header.php';
 ?>
     
  <section class="about-section">
@@ -29,7 +19,7 @@
             </div>
 
             <div class="about-img">
-                <img src="images (5).jpg" alt="Rreth Nesh">
+                <img src="../photos/images (5).jpg" alt="Rreth Nesh">
             </div>
         </div>
     </section>
@@ -57,23 +47,22 @@
 
         <div class="patnerët-container">
             <div class="partner">
-                <img src="HikVision_1.jpg" alt="Patner 1">
+                <img src="../photos/HikVision_1.jpg" alt="Patner 1">
             </div>
             <div class="partner">
-                <img src="images.png" alt="Patner 2">
+                <img src="../photos/images.png" alt="Patner 2">
             </div>
             <div class="partner">
-                <img src="images 88.png" alt="Patner 3">
+                <img src="../photos/images 88.png" alt="Patner 3">
             </div>
             <div class="partner">
-                <img src="images (666.jpg" alt="Patner 4">
+                <img src="../photos/images (666.jpg" alt="Patner 4">
             </div>
         </div>
     </section>
 
 <?php
-    require_once 'footer.php'
+    require_once 'footer.php';
 ?>
-    
 </body>
 </html>

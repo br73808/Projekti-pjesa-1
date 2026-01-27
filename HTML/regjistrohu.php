@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regjistrohu</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../CSS/index.css">
 </head>
 <body>
     <div class="regjistrohu-container">
@@ -46,6 +46,6 @@
             <div id="formSuccess" class="success"></div>
         </form>
     </div>
-    <script src="app.js"></script>
+    <script src="../JS/app.js"></script>
 </body>
 </html>

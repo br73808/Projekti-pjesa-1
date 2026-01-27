@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
 <?php
     require_once 'header.php'
 ?>
@@ -15,7 +5,7 @@
         <h2>Shporta ime</h2>
         <div class="shporta-container">
             <div class="shporta-item">
-                <img src="images (2).jpg">
+                <img src="../photos/images (2).jpg">
             
             <div>
                 <h4>Kamerë Sigurie</h4>
@@ -24,7 +14,7 @@
             <button class="remove">✖</button>
             </div>
             <div class="shporta-item">
-                <img src="images (1).jpg">
+                <img src="../photos/images (1).jpg">
                 <div>
                     <h4>Alarm Shtëpie</h4>
                     <p>180€</p>

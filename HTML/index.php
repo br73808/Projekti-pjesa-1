@@ -1,10 +1,10 @@
 <?php
-    require_once 'header.php'
+    require_once 'header.php';
 ?>
 
 <section class="slider">
         <div class="slide active">
-            <img src="hikvision-box-bullet-fisheye-pan-tilt-zoom-dome-cameras-sm.jpg" alt="Kamera">
+            <img src="../photos/hikvision-box-bullet-fisheye-pan-tilt-zoom-dome-cameras-sm.jpg" alt="Kamera">
             <div class="slidee">
                 <h1>Siguro shtëpinë tënde sot</h1>
                 <p>Siguria më e mirë, çmimet më të mira</p>
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="slide">
-            <img src="HikVision_1.jpg" alt="Kamera">
+            <img src="../photos/HikVision_1.jpg" alt="Kamera">
             <div class="slidee">
                 <h1>Teknologji e avancuar</h1>
                 <p>Kamera dhe pajisje për mbrojtje të plotë</p>
@@ -20,15 +20,15 @@
             </div>
         </div>
         <div class="slide">
-            <img src="HD-IP-Package.webp" alt="Kamera">
+            <img src="../photos/HD-IP-Package.webp" alt="Kamera">
             <div class="slidee">
                 <h1>Mbështetje 24/7</h1>
                 <p>Gjithmon në dispozicion për çdo pyetje</p>
                 <a href="#" class="btn">Shiko Produktet</a>
             </div>
         </div>
-        <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="prev" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="next" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
     </section>
 
     <selection class="elektro-card">
@@ -53,25 +53,25 @@
         <h2>Produktet më të kërkuara</h2>
         <div class="produktett">
             <div class="produktet-card">
-                <img src="camera-fixe-4mp-h265-audio-et-alarme-ir30-metres.jpg" alt="Kamer">
+                <img src="../photos/camera-fixe-4mp-h265-audio-et-alarme-ir30-metres.jpg" alt="Kamer">
                 <h3>Kamerë Hikivision 4Mp</h3>
                 <p>189€</p>
                 <a href="#" class="prod-btn">Shiko</a>
             </div>
             <div class="produktet-card">
-                <img src="tube-ip-anti-vandal-ir-40m-onvif-hikvision-poe-acusense-4k-uhd-8-megapixels-ds-2cd2086g2h-iu-camera-de-video-surveillance-ip.jpg" alt="Kamera">
+                <img src="../photos/tube-ip-anti-vandal-ir-40m-onvif-hikvision-poe-acusense-4k-uhd-8-megapixels-ds-2cd2086g2h-iu-camera-de-video-surveillance-ip.jpg" alt="Kamera">
                 <h3>Kamerë Hikivision 1080p IR Varifocal Outdoor Bullet IP</h3>
                 <p>269€</p>
                 <a href="#" class="prod-btn">Shiko</a>
             </div>
             <div class="produktet-card">
-                <img src="images.jpg" alt="Kamera">
+                <img src="../photos/images.jpg" alt="Kamera">
                 <h3>Hikivision Alarm System</h3>
                 <p>80€</p>
                 <a href="#" class="prod-btn">Shiko</a>
             </div>
             <div class="produktet-card">
-                <img src="images (1).jpg" alt="Kamera">
+                <img src="../photos/images (1).jpg" alt="Kamera">
                 <h3>IP NVR Hikivision</h3>
                 <p>110€</p>
                 <a href="#" class="prod-btn">Shiko</a>
@@ -80,5 +80,5 @@
     </section>
 
 <?php
-    require_once 'footer.php'
+    require_once 'footer.php';
 ?>

@@ -22,6 +22,15 @@
                 <button>Shto në shportë</button>
             </div>
 
+            <div class="produktet-card">
+                <img src="../photos/images (6)2.jpg" alt="Kamerë Sigurie">
+                <h3>Kamerë Sigurie</h3>
+                <p>Kamerë Sigurie Dual-Lens, 8 Megapixel</p>
+                <span>285€</span>
+                <button>Shto në Shportë</span>
+            </div>
+
+
 
             <div class="produktet-card">
                 <img src="../photos/images (3).jpg" alt="Kamerë Sigurie">

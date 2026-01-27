@@ -21,5 +21,6 @@
              © 2025 ElektroHome. Të gjitha të drejtat e rezervuara
         </div>
     </footer>
+    <script src="../JS/slider.js"></script>
 </body>
 </html>

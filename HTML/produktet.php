@@ -30,15 +30,45 @@
                 <button>Shto në Shportë</span>
             </div>
 
-
-
             <div class="produktet-card">
                 <img src="../photos/images (3).jpg" alt="Kamerë Sigurie">
                 <h3>Kamerë Sigurie</h3>
                 <p>Rezulcion HD</p>
                 <span>150€</span>
-                <button>Shto në shportë</button>
+                <button>Shto në Shportë</button>
             </div>
+
+            <div class="produktet-card">
+                <img src="../photos/images (6).jpg" alt="Kamerë Sigurie">
+                <h3>Hikivision DVR</h3>
+                <p>Hikivision DVR 4-Channel HD 1080pTVI</p>
+                <button>Shto në Shportë</button>
+            </div>
+
+            <div class="produktet-card">
+                <img src="../photos/images (7).jpg" alt="Kamerë Sigurie">
+                <h3>Hikivision DVR</h3>
+                <p>Hikivision DVR 8-Channel 1080p</p>
+                <span>285€</span>
+                <button>Shto në Shportë</button>
+            </div>
+
+            <div class="produktet-card">
+                <img src="../photos/images (8).jpg" alt="Kamerë Sigurie">
+                <h3>Hikivision DVR</h3>
+                <p>Hikivision DVR 16-Channel 1080p</p>
+                <span>305€</span>
+                <button>Shto në Shportë</button>
+            </div>
+
+            <div class="produktet-card">
+                <img src="../photos/images (9).jpg" alt="Kamerë Sigurie">
+                <h3>Hikivision DVR</h3>
+                <p>Hikivision DVR 32-Channel 1080p</p>
+                <span>285€</span>
+                <button>Shto në Shportë</button>
+            </div>
+
             <div class="produktet-card">
                 <img src="../photos/images (4).jpg" alt="Kamerë Sigurie">
                 <h3>Alarm Shtëpie</h3>

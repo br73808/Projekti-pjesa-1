@@ -108,7 +108,7 @@ const kontaktFrom = document.getElementById("kontaktFrom");
 
 if(kontaktFrom){
     const name = document.getElementById("name");
-    const email = document.getElementById("email");\
+    const email = document.getElementById("email");
     const subjekti = document.getElementById("subjekti");
     const mesazhi = document.getElementById("mesazhi");
 

@@ -7,7 +7,8 @@
         <p>Na shkruani dhe do t'ju përgjigjemi sa më shpejt</p>
     <div class="kontakt-container">
         <form class="kontakt-form">
-            <input type="text" placeholder="Emri dhe Mbiemri" required>
+            <input type="text" id="name" placeholder="Emri dhe Mbiemri">
+            <span id="nameError" class="error"></span>
             <input type="email" placeholder="Email" required>
             <input type="text" placeholder="Subjekti" required>
             <textarea placeholder="Mesazhi juaj..." rows="5" required></textarea>

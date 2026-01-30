@@ -22,6 +22,5 @@
         </div>
     </footer>
     <script src="../JS/app.js"></script>
-     <script src="../JS/slider.js"></script>
 </body>
 </html>

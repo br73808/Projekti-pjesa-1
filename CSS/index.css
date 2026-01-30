@@ -151,7 +151,7 @@ body {
 }
 
 .produktet-card img {
-    width: 100%;
+    width: 100px;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
@@ -210,14 +210,14 @@ footer {
     color: #ccc;
 }
 
-.kontakt-form .error{
+/* .kontakt-form .error{
     display: block;
     color: red;
     font-size: 13px;
     margin: 5px 0 15px;
-}
+} */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .navbar { 
         flex-direction: column; 
         padding: 15px 20px; 
@@ -269,4 +269,4 @@ footer {
     h2 { font-size: 1.6rem; }
     .slidee h1 { font-size: 1.5rem; }
     .btn, .prod-btn { padding: 10px 20px; font-size: 14px; }
-}
+} */

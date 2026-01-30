@@ -9,10 +9,13 @@
         <form class="kontakt-form">
             <input type="text" id="name" placeholder="Emri dhe Mbiemri">
             <span id="nameError" class="error"></span>
-            <input type="email" placeholder="Email" required>
-            <input type="text" placeholder="Subjekti" required>
-            <textarea placeholder="Mesazhi juaj..." rows="5" required></textarea>
+            <input type="email" id="email" placeholder="Email">
+            <span id="emailError" class="error"></span>
+            <input type="text" id="subjekti" placeholder="Subjekti">
+            <span id="subjektiError" class="error"></span>
+            <textarea id="mesazhiError" placeholder="Mesazhi juaj..." rows="5"></textarea>
             <button type="submit">Dërgo Mesazhin</button>
+            <p id="formS" class="sukses"></p>
         </form>
 
         <div class="kontakt-info">

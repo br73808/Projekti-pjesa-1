@@ -104,6 +104,61 @@ if(menuToggle && menu){
     });
 }
 
+const kontaktFrom = document.getElementById("kontaktFrom");
+
+if(kontaktFrom){
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");\
+    const subjekti = document.getElementById("subjekti");
+    const mesazhi = document.getElementById("mesazhi");
+
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const subjektiError = document.getElementById("subjektiError");
+    const mesazhiError = document.getElementById("mesazhiError");
+    const formS = document.getElementById("formS");
+
+    const nameRe = /^[A-Za-zÇçËë\s]{3,}$/;
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}%/;
+
+    kontaktFrom.addEventListener("submit", function (e){
+        e.preventDefault();
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        subjektiError.textContent = "";
+        mesazhiError.textContent = "";
+        formS.textContent = "";
+
+        let valid = true;
+
+        if(!nameRe.test(name.value.trim())) {
+            nameError.textContent = "Emri dhe Mbiemri i pavlefshëm (min 3 shkrojna)";
+            valid = false;
+        }
+
+        if(!emailRe.test(name.value.tirm())) {
+            emailError.textContent = "Email i pavlefshëm";
+            valid = false;
+        }
+
+        if(subjekti.value.trim().length < 3) {
+            subjektiError.textContent = "Subjekti duhet te ketë min 3 karaktere";
+            valid = false;
+        }
+
+        if(mesazhi.value.trim().length < 10) {
+            mesazhiError.textContent = "Mesazhi duhet të ketë min 10 karaktere";
+            valid = false;
+        }
+
+        if(valid) {
+            formS.textContent = "Mesazhi u dërgua me sukses!";
+            kontaktFrom.reset();
+        }
+    })
+}
+
 
 
 

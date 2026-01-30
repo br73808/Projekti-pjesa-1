@@ -6,7 +6,7 @@
         <h2>Na Kontaktoni</h2>
         <p>Na shkruani dhe do t'ju përgjigjemi sa më shpejt</p>
     <div class="kontakt-container">
-        <form class="kontakt-form">
+        <form id="kontaktFrom" class="kontakt-form">
             <input type="text" id="name" placeholder="Emri dhe Mbiemri">
             <span id="nameError" class="error"></span>
             <input type="email" id="email" placeholder="Email">

@@ -1,3 +1,11 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -152,12 +160,6 @@ body{
     transform: translateY(-10px);
 }
 
-<<<<<<< Updated upstream
-.produktet-card img {
-    width: 100px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-=======
 .produktet-slider{
     padding: 60px 20px;
     text-align: center;
@@ -199,7 +201,6 @@ body{
     object-fit: contain;
     background: #fff;
     transition: transform 0.3 ease;
->>>>>>> Stashed changes
 }
 
 .produktet-card:hover img{
@@ -286,9 +287,6 @@ footer{
     color: #ccc;
 }
 
-<<<<<<< Updated upstream
-/* .kontakt-form .error{
-=======
 .card{
     width: 100%;
     max-width: 380px;
@@ -299,7 +297,7 @@ footer{
     margin: 80px auto;
 }
 
-/* TITLE */
+
 .card h2{
     text-align: center;
     color: #0b63ce;
@@ -307,13 +305,12 @@ footer{
     margin-bottom: 30px;
 }
 
-/* LABEL */
 .card label{
     font-size: 14px;
     color: #333;
 }
 
-/* INPUT */
+
 .input{
     width: 100%;
     padding: 14px;
@@ -328,7 +325,7 @@ footer{
     border-color: #0b63ce;
 }
 
-/* BUTTON */
+
 .card button{
     width: 100%;
     padding: 14px;
@@ -419,68 +416,12 @@ footer{
 }
 
 .kontakt-from .error{
->>>>>>> Stashed changes
     display: block;
     color: red;
     font-size: 13px;
     margin: 5px 0 15px;
-} */
+} 
 
-<<<<<<< Updated upstream
-/* @media (max-width: 768px) {
-    .navbar { 
-        flex-direction: column; 
-        padding: 15px 20px; 
-        gap: 15px; 
-    }
-     
-    .menu-toggle { 
-        display: block; 
-    }
-
-    
-    .menu {
-        display: none; 
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: #076bbd;
-        padding: 15px 0;
-        border-radius: 8px;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        gap: 15px;
-    }
-    
-    .menu.show {
-        display: flex; 
-    }
-
-    .menu li a { 
-        font-size: 18px; 
-        padding: 10px 0; 
-        display: block; 
-    }
-
-    .slider { height: 300px; }
-    .slidee h1 { font-size: 1.8rem; }
-    .slidee p { font-size: 1rem; }
-
-    .produktet-card { width: 100%; max-width: 320px; margin: auto; }
-    .kontakt-form, .kontakt-info { width: 100%; }
-    .shporta-item { flex-direction: column; text-align: center; gap: 10px; }
-    .about-container { flex-direction: column; text-align: center; }
-    .patnerët-container { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-}
-
-@media (max-width: 480px) {
-    .logo { font-size: 22px; }
-    h2 { font-size: 1.6rem; }
-    .slidee h1 { font-size: 1.5rem; }
-    .btn, .prod-btn { padding: 10px 20px; font-size: 14px; }
-} */
-=======
 .kontakt-form button{
     width: 100%;
     padding: 12px;
@@ -807,4 +748,3 @@ footer{
 #buttoni:hover{
     background: #004a80;
 }
->>>>>>> Stashed changes

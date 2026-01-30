@@ -46,7 +46,6 @@ body {
     color: #cfe8ff;
 }
 
-
 .menu-toggle {
     display: none; 
     font-size: 28px;
@@ -55,19 +54,6 @@ body {
     z-index: 10;
 }
 
-
-.menu.show {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background-color: #076bbd;
-    width: 100%;
-    padding: 15px 0;
-    border-radius: 8px;
-    position: absolute;
-    top: 100%;
-    left: 0;
-}
 
 .slider {
     position: relative;
@@ -112,6 +98,7 @@ body {
     font-size: 1.3rem;
     margin-bottom: 25px;
 }
+
 
 .btn {
     background-color: #076bbd;
@@ -188,7 +175,6 @@ body {
     transform: scale(1.05);
 }
 
-
 footer {
     background: #004a80;
     color: white;
@@ -224,24 +210,42 @@ footer {
     color: #ccc;
 }
 
+
 @media (max-width: 768px) {
-    .navbar { flex-direction: column; padding: 15px 20px; gap: 15px; }
+    .navbar { 
+        flex-direction: column; 
+        padding: 15px 20px; 
+        gap: 15px; 
+    }
      
-    .menu-toggle { display: block; }
+    .menu-toggle { 
+        display: block; 
+    }
+
     
     .menu {
-        display: none;
+        display: none; 
         flex-direction: column;
         width: 100%;
         text-align: center;
         background-color: #076bbd;
         padding: 15px 0;
         border-radius: 8px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        gap: 15px;
+    }
+    
+    .menu.show {
+        display: flex; 
     }
 
-    .menu li a { font-size: 18px; padding: 10px 0; display: block; }
-
-    
+    .menu li a { 
+        font-size: 18px; 
+        padding: 10px 0; 
+        display: block; 
+    }
 
     .slider { height: 300px; }
     .slidee h1 { font-size: 1.8rem; }

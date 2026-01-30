@@ -210,6 +210,12 @@ footer {
     color: #ccc;
 }
 
+.kontakt-form .error{
+    display: block;
+    color: red;
+    font-size: 13px;
+    margin: 5px 0 15px;
+}
 
 @media (max-width: 768px) {
     .navbar { 

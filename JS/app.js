@@ -104,59 +104,60 @@ if(menuToggle && menu){
     });
 }
 
-const kontaktFrom = document.getElementById("kontaktFrom");
+const contactForm = document.getElementById("contactForm");
 
-if(kontaktFrom){
-    const name = document.getElementById("name");
-    const email = document.getElementById("email");
-    const subjekti = document.getElementById("subjekti");
-    const mesazhi = document.getElementById("mesazhi");
+if (contactForm) {
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const subject = document.getElementById("subject");
+  const message = document.getElementById("message");
 
-    const nameError = document.getElementById("nameError");
-    const emailError = document.getElementById("emailError");
-    const subjektiError = document.getElementById("subjektiError");
-    const mesazhiError = document.getElementById("mesazhiError");
-    const formS = document.getElementById("formS");
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const subjectError = document.getElementById("subjectError");
+  const messageError = document.getElementById("messageError");
+  const formSuccess = document.getElementById("formSuccess");
 
-    const nameRe = /^[A-Za-zÇçËë\s]{3,}$/;
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}%/;
+  const nameRe = /^[A-Za-zÇçËë\s]{3,}$/;
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-    kontaktFrom.addEventListener("submit", function (e){
-        e.preventDefault();
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        nameError.textContent = "";
-        emailError.textContent = "";
-        subjektiError.textContent = "";
-        mesazhiError.textContent = "";
-        formS.textContent = "";
+    // Clear errors
+    nameError.textContent = "";
+    emailError.textContent = "";
+    subjectError.textContent = "";
+    messageError.textContent = "";
+    formSuccess.textContent = "";
 
-        let valid = true;
+    let valid = true;
 
-        if(!nameRe.test(name.value.trim())) {
-            nameError.textContent = "Emri dhe Mbiemri i pavlefshëm (min 3 shkrojna)";
-            valid = false;
-        }
+    if (!nameRe.test(name.value.trim())) {
+      nameError.textContent = "Emri dhe mbiemri i pavlefshëm (min 3 shkronja)";
+      valid = false;
+    }
 
-        if(!emailRe.test(name.value.tirm())) {
-            emailError.textContent = "Email i pavlefshëm";
-            valid = false;
-        }
+    if (!emailRe.test(email.value.trim())) {
+      emailError.textContent = "Email i pavlefshëm";
+      valid = false;
+    }
 
-        if(subjekti.value.trim().length < 3) {
-            subjektiError.textContent = "Subjekti duhet te ketë min 3 karaktere";
-            valid = false;
-        }
+    if (subject.value.trim().length < 3) {
+      subjectError.textContent = "Subjekti duhet të ketë min 3 karaktere";
+      valid = false;
+    }
 
-        if(mesazhi.value.trim().length < 10) {
-            mesazhiError.textContent = "Mesazhi duhet të ketë min 10 karaktere";
-            valid = false;
-        }
+    if (message.value.trim().length < 10) {
+      messageError.textContent = "Mesazhi duhet të ketë min 10 karaktere";
+      valid = false;
+    }
 
-        if(valid) {
-            formS.textContent = "Mesazhi u dërgua me sukses!";
-            kontaktFrom.reset();
-        }
-    })
+    if (valid) {
+      formSuccess.textContent = "Mesazhi u dërgua me sukses! (Demo front-end)";
+      contactForm.reset();
+    }
+  });
 }
 
 let slides = document.querySelectorAll(".slide");
@@ -185,4 +186,29 @@ function prevSlide() {
     showSlide(index);
 }
 
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlide(i){
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[i].classList.add("active");
+}
+
+function nextSlide(){
+    if(index < slides.length -1){
+        index++;
+    }else{
+        index = 0;
+    }
+    showSlide(index);
+}
+
+function prevSlide() {
+    if(index > 0){
+        index--;
+    }else{
+        index = slides.length -1;
+    }
+    showSlide(index);
+}
 

@@ -1,73 +1,99 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+body {
     background-color: white;
     color: #333;
 }
 
-.navbar{
+
+.navbar {
     background-color: #076bbd;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
+    position: relative;
 }
 
-.logo{
+.logo {
     color: whitesmoke;
     font-size: 28px;
     font-weight: 700;
     letter-spacing: 2px;
 }
 
-.menu{
+.menu {
     list-style: none;
     display: flex;
     gap: 30px;
+    transition: max-height 0.4s ease;
 }
 
-.menu li a{
+.menu li a {
     color: white;
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
-   transition: color 0.3 ease;
+    transition: color 0.3s ease;
 }
 
-.menu li a:hover{
+.menu li a:hover {
     color: #cfe8ff;
 }
 
-.slider{
+
+.menu-toggle {
+    display: none; 
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+
+.menu.show {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #076bbd;
+    width: 100%;
+    padding: 15px 0;
+    border-radius: 8px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.slider {
     position: relative;
     overflow: hidden;
     height: 500px;
 }
 
-.slide{
+.slide {
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.6 ease;
+    transition: opacity 0.6s ease;
 }
 
-.slider .active{
+.slider .active {
     opacity: 1;
 }
 
-.slider img{
+.slider img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.slidee{
+.slidee {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -77,17 +103,17 @@ body{
     text-shadow: 2px 2px 8px black;
 }
 
-.slidee h1{
+.slidee h1 {
     font-size: 2.8rem;
     margin-bottom: 15px;
 }
 
-.slidee p{
+.slidee p {
     font-size: 1.3rem;
     margin-bottom: 25px;
 }
 
-.btn{
+.btn {
     background-color: #076bbd;
     color: white;
     padding: 12px 30px;
@@ -97,15 +123,16 @@ body{
     transition: background 0.3s ease;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #004a80;
 }
 
-.slider .prev, .slider .next{
+
+.slider .prev, .slider .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     border: none;
     color: white;
     font-size: 24px;
@@ -114,620 +141,122 @@ body{
     border-radius: 50%;
 }
 
-.slider .prev{
-    left: 20px;
-}
+.slider .prev { left: 20px; }
+.slider .next { right: 20px; }
 
-.slider .next{
-    right: 20px;
-}
 
-.elektro-card{
+.elektro-card, .produktet-slider, .kontakt-section, .about-section,
+.values-section, .patnerët-section, .shporta-section {
     padding: 60px 20px;
     text-align: center;
 }
 
-.elektro-card h2{
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-}
-
-.pse-te-zgjedhim{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.pse{
-    background: white;
-    padding: 25px;
-    width: 280px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    transition: transform 0.3 ease;
-}
-
-.pse:hover{
-    transform: translateY(-10px);
-}
-
-.produktet-slider{
-    padding: 60px 20px;
-    text-align: center;
-    background: #f8f9fa;
-}
-
-.produktet-slider h2{
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-}
-
-.produktett{
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-
-}
-
-.produktet-card{
-    background: white;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
-
-}
-
-.produktet-card:hover{
-    transform: translateY(-10%);
-    box-shadow: 0, 20px, 40px rgba(0,0,0,0.15);
-}
-
-.produktet-card img{
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
+.produktet-card {
     background: #fff;
-    transition: transform 0.3 ease;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
-.produktet-card:hover img{
+.produktet-card:hover {
+    transform: translateY(-5px);
+}
+
+.produktet-card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.produktet-card:hover img {
     transform: scale(1.05);
 }
 
-.produktet-card h3{
-    font-size: 17px;
-    font-weight: 600;
-    margin: 15px 10px 5px;
-}
-
-.prod-btn{
+.prod-btn, .btn {
     display: inline-block;
-    margin: 15px 0 20px;
     background: #076bbd;
     color: white;
-    padding: 10px 26px;
     border-radius: 25px;
+    padding: 10px 26px;
+    font-weight: 600;
     text-decoration: none;
-    font-size: 14px;
     transition: all 0.3s ease;
 }
 
-.prod-btn:hover{
-    transform: scale(1.05);
+.prod-btn:hover, .btn:hover {
     transform: scale(1.05);
 }
 
-footer{
+
+footer {
     background: #004a80;
     color: white;
     padding: 50px 40px 30px;
 }
 
-.footer-top{
+.footer-top {
     display: flex;
     justify-content: space-between;
     gap: 40px;
     flex-wrap: wrap;
 }
 
-.pjesa-foterit{
+.pjesa-foterit {
     flex: 1;
     min-width: 220px;
 }
 
-.pjesa-foterit h2, .pjesa-foterit h3{
-    margin-bottom: 15px;
-    font-weight: 600;
-}
+.pjesa-foterit h2, .pjesa-foterit h3 { margin-bottom: 15px; font-weight: 600; }
+.pjesa-foterit p { font-size: 14px; line-height: 1.8; color: #e0e0e0; }
 
-.pjesa-foterit p{
-    font-size: 14px;
-    line-height: 1.8;
-    color: #e0e0e0;
-}
+.social-icons { display: flex; margin-top: 10px; }
+.social-icons a { color: white; font-size: 26px; margin-right: 15px; transition: all 0.3s ease; }
+.social-icons a:hover { color: #76b6ff; transform: translateY(-5px); }
 
-.social-icons{
-    display: flex;
-    margin-top: 10px;
-}
-
-.social-icons a{
-    color: white;
-    font-size: 26px;
-    margin-right: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover{
-    color: #76b6ff;
-    transform: translateY(-5px);
-}
-
-.pjesa-foteritt{
+.pjesa-foteritt {
     width: 100%;
     text-align: center;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255,255,255,0.2);
     font-size: 13px;
     color: #ccc;
 }
 
-.card{
-    width: 100%;
-    max-width: 380px;
-    background: white;
-    padding: 45px 40px;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    margin: 80px auto;
-}
-
-
-.card h2{
-    text-align: center;
-    color: #0b63ce;
-    font-size: 26px;
-    margin-bottom: 30px;
-}
-
-
-.card label{
-    font-size: 14px;
-    color: #333;
-}
-
-
-.input{
-    width: 100%;
-    padding: 14px;
-    margin: 8px 0 18px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-}
-
-.input:focus{
-    outline: none;
-    border-color: #0b63ce;
-}
-
-
-.card button{
-    width: 100%;
-    padding: 14px;
-    background: #0b63ce;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.card button:hover{
-    background: #094ea3;
-}
-
-
-.error{
-    color: red;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-
-.success{
-    color: green;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.card p{
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.card p a{
-    color: #6a0dad;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.card p a:hover{
-    text-decoration: underline;
-}
-.kontakt-section{
-    padding: 60px 20px;
-    background: #f4f6f8;
-    text-align: center;
-}
-
-.kontakt-section h2{
-    font-size: 2.3rem;
-    margin-bottom: 10px;
-    color: #076bbd;
-}
-
-.kontakt-section p{
-    margin-bottom: 40px;
-    color: #555;
-}
-
-.kontakt-container{
-    max-width: 1000px;
-    margin: auto;
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.kontakt-form{
-    background: white;
-    padding: 30px;
-    width: 400px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-.kontakt-form input, .kontakt-form textarea{
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
-
-.kontakt-form button{
-    width: 100%;
-    padding: 12px;
-    background: #076bbd;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-weight: 700;
-}
-
-.kontakt-form button:hover{
-    background: #004a80;
-}
-
-.kontakt-info{
-    width: 300px;
-    text-align: left;
-}
-
-.kontakt-info h3{
-    margin-bottom: 20px;
-    color: #076bbd;
-}
-
-.kontakt-info p{
-    margin-bottom: 12px;
-    font-size: 15px;
-}
-
-.produktet-section{
-    padding: 60px 10%;
-    text-align: center;
-}
-
-.produktet-section h2{
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.produktet-section p{
-    color: #666;
-    margin-bottom: 40px;
-}
-
-.produktet-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.produktet-card{
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-}
-
-.produktet-card:hover{
-    transform: translateY(-5px);
-}
-
-.produktet-card img{
-    width: 100%;
-    border-radius: 10px;
-}
-
-.produktet-card h3{
-    margin: 15px 0 5px;
-}
-
-.produktet-card span{
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #007bff;
-}
-
-.produktet-card button{
-    padding: 10px 20px;
-    border: none;
-    background: #076bbd;
-    color: white;    
-    border-radius: 5px;
-}
-
-.produktet-card button:hover{
-    background: #076bbd;
-}
-
-.shporta-section{
-    padding: 60px 10%;
-}
-
-.shporta-section h2{
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.shporta-container{
-    max-width: 800px;
-    margin: auto;
-}
-
-.shporta-item{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.shporta-item img{
-    width: 80px;
-    border-radius: 5px;
-}
-
-.shporta-item h4{
-    margin: 5px 0;
-    font-weight: bold;
-}
-
-.shporta-item p{
-    margin: 5px 0;
-    font-weight: bold;
-}
-
-.remove{
-    background: red;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-}
-
-.shporta-total{
-    text-align: right;
-    margin-top: 30px;
-}
-
-.checkout{
-    padding: 12px 25px;
-    background: #076bbd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-.checkout:hover{
-    background: #0056b3;
-}
-.about-section{
-    padding: 60px 10%;
-}
-
-.about-container{
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.about-text{
-    flex: 1;
-}
-
-.about-text h2{
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.about-text p{
-    margin-bottom: 15px;
-    color: #555;
-}
-.aboutt{
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.aboutt div{
-    background: #f5f5f5;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-weight: 500;
-}
-
-.aboutt i{
-    color: #076bbd;
-    margin-right: 5px;
-}
-
-.about-img img{
-    width: 100%;
-    max-width: 450px;
-    border-radius: 10px;
-}
-
-.values-section{
-    background: #f9f9f9;
-    padding: 60px 10%;
-    text-align: center;
-}
-
-.values-section h2{
-    margin-bottom: 40px;
-}
-
-.values-container{
-    display: grid;
-    gap: 25px;
-}
-
-.values-box{
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.values-box i{
-    font-size: 30px;
-    color: #076bbd;
-    margin-bottom: 10px;
-}
-
-.patnerët-section{
-    padding: 60px 8%;
-}
-
-.patnerët-container{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 80px 60px;
-    align-items: center;
-    justify-items: center;
-}
-
-.partner{
-    padding: 10px;
-}
-
-.partner img{
-    max-width: 180px;
-    max-height: 80px;
-    object-fit: contain;
-    filter: contrast(1.15) brightness(1.05);
-    transition: 0.25s ease;
-}
-
-.partner:hover img{
-    transform: scale(1.05);
-    filter: contrast(1.25) brightness(1.1);
-}
-
-.regjistrohu-container{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:  20px;
-}
-
-.regjister-form{
-    background: white;
-    padding: 40px;
-    width: 380px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.regjister-form h2{
-    text-align: center;
-    margin-bottom: 25px;
-    color: #076bbd;
-}
-
-.regjister-form label{
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-
-.regjister-form .input{
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
-
-.regjister-form .input:focus{
-    outline: none;
-    border-color: #076bbd;
-}
-
-.gjiniaa{
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.radio-label{
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 14px;
-}
-
-#buttoni{
-   width: 100%;
-   padding: 12px;
-   
-}
-
-#buttoni:hover{
-    background: #004a80;
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; padding: 15px 20px; gap: 15px; }
+     
+    .menu-toggle { display: block; }
+    
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #076bbd;
+        padding: 15px 0;
+        border-radius: 8px;
+    }
+
+    .menu li a { font-size: 18px; padding: 10px 0; display: block; }
+
+    
+
+    .slider { height: 300px; }
+    .slidee h1 { font-size: 1.8rem; }
+    .slidee p { font-size: 1rem; }
+
+    .produktet-card { width: 100%; max-width: 320px; margin: auto; }
+    .kontakt-form, .kontakt-info { width: 100%; }
+    .shporta-item { flex-direction: column; text-align: center; gap: 10px; }
+    .about-container { flex-direction: column; text-align: center; }
+    .patnerët-container { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 22px; }
+    h2 { font-size: 1.6rem; }
+    .slidee h1 { font-size: 1.5rem; }
+    .btn, .prod-btn { padding: 10px 20px; font-size: 14px; }
 }

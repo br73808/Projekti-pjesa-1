@@ -8,14 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-        <nav class="navbar">
+    <nav class="navbar">
         <div class="logo">ElektroHome</div>
+
+        
+        <div class="menu-toggle">
+            <i class="fa fa-bars"></i>
+        </div>
+
         <ul class="menu">
             <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">Reth Nesh</a></li>
+            <li><a href="about.php">Rreth Nesh</a></li>
             <li><a href="produktet.php">Produktet</a></li>
             <li><a href="kontakt.php">Kontakt</a></li>
             <li><a href="login.php">Login</a></li>
-             <li><a href="shporta.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a href="shporta.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
         </ul>
     </nav>
+
+
+</body>
+</html>

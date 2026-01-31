@@ -1,108 +1,95 @@
 <?php
-    require_once 'header.php'
+session_start();
+require_once 'database.php';
+
+/* ================== KLASA PRODUCT (OOP) ================== */
+class Product {
+    private $conn;
+
+    public function __construct($db){
+        $this->conn = $db;
+    }
+
+    public function getAllProducts(){
+        $sql = "SELECT * FROM produkte";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getProductById($id){
+        $sql = "SELECT * FROM produkte WHERE produkt_id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+}
+
+/* ================== DB ================== */
+$db = new Database();
+$conn = $db->getConnection();
+$productObj = new Product($conn);
+
+/* ================== SHPORTA ================== */
+if(!isset($_SESSION['cart'])){
+    $_SESSION['cart'] = [];
+}
+
+if(isset($_POST['shto_shporte'])){
+    $produkt_id = $_POST['produkt_id'];
+    $produkt = $productObj->getProductById($produkt_id);
+
+    if($produkt){
+        if(isset($_SESSION['cart'][$produkt_id])){
+            $_SESSION['cart'][$produkt_id]['qty']++;
+        } else {
+            $_SESSION['cart'][$produkt_id] = [
+                'emri' => $produkt['emri'],
+                'cmimi' => $produkt['cmimi'],
+                'qty' => 1
+            ];
+        }
+    }
+    header("Location: produktet.php");
+    exit;
+}
+
+/* ================== PRODUKTET ================== */
+$produkte = $productObj->getAllProducts();
 ?>
-    <section class="produktet-section">
-        <h2>Produktet tona</h2>
-        <p>Zgjidhni nga produktet më cilësore për shtëpinë tuaj</p>
 
-        <div class="produktet-container">
-            <div class="produktet-card">
-                <img src="../photos/images (2).jpg" alt="Kamerë Sigurie">
-                <h3>Kamerë Sigurie</h3>
-                <p>Rezulcion HD, monitorim 24/7</p>
-                <span>120€</span>
-                <button>Shto në shportë</button>
-            </div>
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <title>Produktet</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
 
-            <div class="produktet-card">
-                <img src="../photos/images 22.jpg" alt="Kamerë Sigurie">
-                <h3>Kamerë Sigurie</h3>
-                <p>Rezulcion HD</p>
-                <span>150€</span>
-                <button>Shto në shportë</button>
-            </div>
+<?php require_once 'header.php'; ?>
 
-            <div class="produktet-card">
-                <img src="../photos/images (6)2.jpg" alt="Kamerë Sigurie">
-                <h3>Kamerë Sigurie</h3>
-                <p>Kamerë Sigurie Dual-Lens, 8 Megapixel</p>
-                <span>285€</span>
-                <button>Shto në Shportë</span>
-            </div>
+<section class="produktet-section">
+    <h2>Produktet tona</h2>
 
-            <div class="produktet-card">
-                <img src="../photos/images (3).jpg" alt="Kamerë Sigurie">
-                <h3>Kamerë Sigurie</h3>
-                <p>Rezulcion HD</p>
-                <span>150€</span>
-                <button>Shto në Shportë</button>
-            </div>
+    <div class="produktet-container">
+        <?php foreach($produkte as $p): ?>
+        <div class="produktet-card">
+            <img src="uploads/<?= $p['foto']; ?>" alt="<?= $p['emri']; ?>">
+            <h3><?= $p['emri']; ?></h3>
+            <p><?= $p['pershkrimi']; ?></p>
+            <span><?= $p['cmimi']; ?> €</span>
 
-            <div class="produktet-card">
-                <img src="../photos/images (6).jpg" alt="Kamerë Sigurie">
-                <h3>Hikivision DVR</h3>
-                <p>Hikivision DVR 4-Channel HD 1080pTVI</p>
-                <button>Shto në Shportë</button>
-            </div>
-
-            <div class="produktet-card">
-                <img src="../photos/images (7).jpg" alt="Kamerë Sigurie">
-                <h3>Hikivision DVR</h3>
-                <p>Hikivision DVR 8-Channel 1080p</p>
-                <span>285€</span>
-                <button>Shto në Shportë</button>
-            </div>
-
-            <div class="produktet-card">
-                <img src="../photos/images (8).jpg" alt="Kamerë Sigurie">
-                <h3>Hikivision DVR</h3>
-                <p>Hikivision DVR 16-Channel 1080p</p>
-                <span>305€</span>
-                <button>Shto në Shportë</button>
-            </div>
-
-            <div class="produktet-card">
-                <img src="../photos/images (9).jpg" alt="Kamerë Sigurie">
-                <h3>Hikivision DVR</h3>
-                <p>Hikivision DVR 32-Channel 1080p</p>
-                <span>285€</span>
-                <button>Shto në Shportë</button>
-            </div>
-
-            <div class="produktet-card">
-                <img src="../photos/images (4).jpg" alt="Kamerë Sigurie">
-                <h3>Alarm Shtëpie</h3>
-                <p>Sistem modern sigurie</p>
-                <span>180€</span>
-                <button>Shto në shportë</button>
-            </div>
-
-            <div class="produktet-card">
-                <img src="../photos/images (10).jpg" alt="Kamerë Sigurie">
-                <h3>Alarm Shtëpie</h3>
-                <p>Hikivision AX PRO Wireless Alarm System</p>
-                <span>110€</span>
-                <button>Shto në Shportë</button>
-            </div>
-
-            <div class="produktet-card">
-                <img src="../photos/images 112.jpg" alt="Kamerë Sigurie">
-                <h3>Alarm Shtëpie</h3>
-                <p>Hikivision Wireless Alarm</p>
-                <span>180€</span>
-                <button>Shto në Shportë</button>
-            </div>
-
-            <div class="produktet-card">
-                <img src="../photos/images 111.jpg" alt="Kamerë Sigurie">
-                <h3>Alarm Shtëpie</h3>
-                <p>Hikivision Smoke Alarm</p>
-                <span>60€</span>
-                  <button>Shto në shportë</button>
-             </div>
+            <form method="POST">
+                <input type="hidden" name="produkt_id" value="<?= $p['produkt_id']; ?>">
+                <button type="submit" name="shto_shporte">Shto në shportë</button>
+            </form>
         </div>
-    </section>
+        <?php endforeach; ?>
+    </div>
+</section>
 
-   <?php
-    require_once 'footer.php'
-?>
+<?php require_once 'footer.php'; ?>
+
+</body>
+</html>

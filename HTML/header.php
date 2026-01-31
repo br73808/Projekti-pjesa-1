@@ -11,10 +11,6 @@
     <nav class="navbar">
         <div class="logo">ElektroHome</div>
 
-        
-        <div class="menu-toggle">
-            <i class="fa fa-bars"></i>
-        </div>
 
         <ul class="menu">
             <li><a href="index.php">Home</a></li>

@@ -14,8 +14,9 @@ if(isset($_POST['dergo'])){
     $subject = $_POST['subject'];    
     $mesazhi = $_POST['mesazhi'];
 
-    $sql = "INSERT INTO kontakti (emri_mbiemri, email, subjekti, mesazhi, data) 
-            VALUES (:emri, :email, :subject, :mesazhi, NOW())";
+   
+    $sql = "INSERT INTO kontakti (emri_mbiemri, email, subjekti, mesazhi) 
+            VALUES (:emri, :email, :subject, :mesazhi)";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         ':emri' => $emri,

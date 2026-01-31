@@ -1,5 +1,4 @@
 <?php
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -25,10 +24,15 @@ if (session_status() == PHP_SESSION_NONE) {
             <li><a href="kontakt.php">Kontakt</a></li>
 
             <?php if(isset($_SESSION['user_id'])): ?>
-               
+
+                <?php if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
+                
+                    <li><a href="admin/dashboard.php">Dashboard</a></li>
+                <?php endif; ?>
+            
                 <li><a href="logout.php">Logout</a></li>
             <?php else: ?>
-             
+                
                 <li><a href="login.php">Login</a></li>
             <?php endif; ?>
 

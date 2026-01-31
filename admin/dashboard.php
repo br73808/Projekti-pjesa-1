@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Nëse nuk është admin → s’ka qasje
+
 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
     header("Location: ../login.php");
     exit;

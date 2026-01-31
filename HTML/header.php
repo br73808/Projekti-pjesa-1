@@ -1,5 +1,12 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,31 +18,22 @@
     <nav class="navbar">
         <div class="logo">ElektroHome</div>
 
-
-        <!-- <ul class="menu">
+        <ul class="menu">
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">Rreth Nesh</a></li>
             <li><a href="produktet.php">Produktet</a></li>
             <li><a href="kontakt.php">Kontakt</a></li>
-            <li><a href="login.php">Login</a></li>
+
+            <?php if(isset($_SESSION['user_id'])): ?>
+               
+                <li><a href="logout.php">Logout</a></li>
+            <?php else: ?>
+             
+                <li><a href="login.php">Login</a></li>
+            <?php endif; ?>
+
             <li><a href="shporta.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
-        </ul> -->
+        </ul>
     </nav>
-
-    <ul class="menu">
-    <li><a href="index.php">Home</a></li>
-    <li><a href="about.php">Rreth Nesh</a></li>
-    <li><a href="produktet.php">Produktet</a></li>
-    <li><a href="kontakt.php">Kontakt</a></li>
-
-    <?php if(isset($_SESSION['user_id'])): ?>
-        <li><a href="logout.php">Logout</a></li>
-    <?php else: ?>
-        <li><a href="login.php">Login</a></li>
-    <?php endif; ?>
-
-    <li><a href="shporta.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
-</ul>
-
 </body>
 </html>

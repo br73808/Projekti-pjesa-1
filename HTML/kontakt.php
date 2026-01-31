@@ -5,15 +5,16 @@ require_once 'database.php';
 $db = new Database();
 $conn = $db->getConnection();
 
+
 $success = "";
 
 if(isset($_POST['dergo'])){
-    $emri = $_POST['emri'];
+    $emri = $_POST['emri'];          
     $email = $_POST['email'];
-    $subject = $_POST['subject'];
+    $subject = $_POST['subject'];    
     $mesazhi = $_POST['mesazhi'];
 
-    $sql = "INSERT INTO kontakti (emri, email, subject, mesazhi, data) 
+    $sql = "INSERT INTO kontakti (emri_mbiemri, email, subjekti, mesazhi, data) 
             VALUES (:emri, :email, :subject, :mesazhi, NOW())";
     $stmt = $conn->prepare($sql);
     $stmt->execute([

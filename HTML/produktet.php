@@ -30,7 +30,7 @@ $db = new Database();
 $conn = $db->getConnection();
 $productObj = new Product($conn);
 
-/* ================== SHPORTA ================== */
+/* ================== SHPORTA (SESSION) ================== */
 if(!isset($_SESSION['cart'])){
     $_SESSION['cart'] = [];
 }
@@ -46,7 +46,7 @@ if(isset($_POST['shto_shporte'])){
             $_SESSION['cart'][$produkt_id] = [
                 'emri' => $produkt['emri'],
                 'cmimi' => $produkt['cmimi'],
-                'qty' => 1
+                'qty'   => 1
             ];
         }
     }
@@ -73,19 +73,25 @@ $produkte = $productObj->getAllProducts();
     <h2>Produktet tona</h2>
 
     <div class="produktet-container">
-        <?php foreach($produkte as $p): ?>
-        <div class="produktet-card">
-            <img src="uploads/<?= $p['foto']; ?>" alt="<?= $p['emri']; ?>">
-            <h3><?= $p['emri']; ?></h3>
-            <p><?= $p['pershkrimi']; ?></p>
-            <span><?= $p['cmimi']; ?> €</span>
+        <?php if(count($produkte) > 0): ?>
+            <?php foreach($produkte as $p): ?>
+                <div class="produktet-card">
+                    <!-- 📌 PATH I RREGULLUAR I FOTOS -->
+                    <img src="../photos/<?= htmlspecialchars($p['foto']); ?>" alt="<?= htmlspecialchars($p['emri']); ?>">
 
-            <form method="POST">
-                <input type="hidden" name="produkt_id" value="<?= $p['produkt_id']; ?>">
-                <button type="submit" name="shto_shporte">Shto në shportë</button>
-            </form>
-        </div>
-        <?php endforeach; ?>
+                    <h3><?= htmlspecialchars($p['emri']); ?></h3>
+                    <p><?= htmlspecialchars($p['pershkrimi']); ?></p>
+                    <span><?= htmlspecialchars($p['cmimi']); ?> €</span>
+
+                    <form method="POST">
+                        <input type="hidden" name="produkt_id" value="<?= $p['produkt_id']; ?>">
+                        <button type="submit" name="shto_shporte">Shto në shportë</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Nuk ka produkte për momentin.</p>
+        <?php endif; ?>
     </div>
 </section>
 

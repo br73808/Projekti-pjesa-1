@@ -1,7 +1,6 @@
 <?php
 require_once "database.php";
 
-$success = "";
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -30,7 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 ':password' => $hashedPassword
             ]);
 
-            $success = "Regjistrimi u krye me sukses!";
+          
+            header("Location: login.php?registered=success");
+            exit;
+
         } catch (PDOException $e) {
             $error = "Email ekziston ose gabim në regjistrim.";
         }
@@ -69,13 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php if ($error): ?>
             <div class="error"><?= $error ?></div>
         <?php endif; ?>
-
-        <?php if ($success): ?>
-            <div class="success"><?= $success ?></div>
-        <?php endif; ?>
     </form>
 </div>
 
-<script src="../JS/app.js"></script>
 </body>
 </html>

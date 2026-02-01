@@ -12,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    /* ================= VALIDIM ================= */
 
     if (empty($emri) || empty($mbiemri) || empty($email) || empty($password)) {
         $error = "Ju lutem plotësoni të gjitha fushat.";
@@ -30,9 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $user = new User($conn);
 
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-
-            if ($user->register($emri, $mbiemri, $email, $passwordHash, 0)) {
+            if ($user->register($emri, $mbiemri, $email, $password, 0)) {
                 header("Location: login.php?registered=success");
                 exit;
             } else {

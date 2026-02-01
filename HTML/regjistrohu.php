@@ -1,13 +1,14 @@
 <?php
 require_once "database.php";
+require_once "../classes/User.php";
 
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $emri = trim($_POST['emri']);
-    $mbiemri = trim($_POST['mbiemri']);
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
+    $emri = trim($_POST['emri'] ?? '');
+    $mbiemri = trim($_POST['mbiemri'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
 
     if (empty($emri) || empty($mbiemri) || empty($email) || empty($password)) {
         $error = "Ju lutem plotësoni të gjitha fushat.";
@@ -16,25 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $db = new Database();
             $conn = $db->getConnection();
 
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $user = new User($conn);
 
-            $sql = "INSERT INTO user (emri, mbiemri, email, password, isAdmin)
-                    VALUES (:emri, :mbiemri, :email, :password, 0)";
-
-            $stmt = $conn->prepare($sql);
-            $stmt->execute([
-                ':emri' => $emri,
-                ':mbiemri' => $mbiemri,
-                ':email' => $email,
-                ':password' => $hashedPassword
-            ]);
-
-          
-            header("Location: login.php?registered=success");
-            exit;
+            
+            if ($user->register($emri, $mbiemri, $email, $password, 0)) {
+                header("Location: login.php?registered=success");
+                exit;
+            } else {
+                $error = "Gabim në regjistrim. Email mund të ekzistojë.";
+            }
 
         } catch (PDOException $e) {
-            $error = "Email ekziston ose gabim në regjistrim.";
+            $error = "Gabim në regjistrim: " . $e->getMessage();
         }
     }
 }
@@ -55,21 +49,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h2>Regjistrohu</h2>
 
         <label>Emri</label>
-        <input type="text" name="emri" class="input" required>
+        <input type="text" name="emri" class="input" required value="<?= htmlspecialchars($emri ?? '') ?>">
 
         <label>Mbiemri</label>
-        <input type="text" name="mbiemri" class="input" required>
+        <input type="text" name="mbiemri" class="input" required value="<?= htmlspecialchars($mbiemri ?? '') ?>">
 
         <label>Email</label>
-        <input type="email" name="email" class="input" required>
+        <input type="email" name="email" class="input" required value="<?= htmlspecialchars($email ?? '') ?>">
 
         <label>Password</label>
         <input type="password" name="password" class="input" required>
 
         <input type="submit" value="Regjistrohu" class="input">
 
-        <?php if ($error): ?>
-            <div class="error"><?= $error ?></div>
+        <?php if (!empty($error)): ?>
+            <div class="error"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
     </form>
 </div>

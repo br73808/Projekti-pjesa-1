@@ -420,7 +420,13 @@ footer{
     color: red;
     font-size: 13px;
     margin: 5px 0 15px;
-} 
+}
+.form-error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
 
 .kontakt-form button{
     width: 100%;

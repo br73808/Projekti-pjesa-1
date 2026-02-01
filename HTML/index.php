@@ -1,97 +1,79 @@
 <?php
 require_once 'database.php';
-
 $db = new Database();
 $conn = $db->getConnection();
 
-$stmtSlider = $conn->prepare("SELECT * FROM home_content WHERE section = 'slider'");
-$stmtSlider->execute();
-$sliders = $stmtSlider->fetchAll(PDO::FETCH_ASSOC);
 
 $stmtWhy = $conn->prepare("SELECT * FROM home_content WHERE section = 'why'");
 $stmtWhy->execute();
 $whyItems = $stmtWhy->fetchAll(PDO::FETCH_ASSOC);
 
+
+$stmtProducts = $conn->prepare("SELECT * FROM produkte ORDER BY produkt_id DESC LIMIT 4");
+$stmtProducts->execute();
+$produkte = $stmtProducts->fetchAll(PDO::FETCH_ASSOC);
+
 require_once 'header.php';
 ?>
 
+
 <section class="slider">
-        <div class="slide active">
-            <img src="../photos/hikvision-box-bullet-fisheye-pan-tilt-zoom-dome-cameras-sm.jpg" alt="Kamera">
-            <div class="slidee">
-                <h1>Siguro shtëpinë tënde sot</h1>
-                <p>Siguria më e mirë, çmimet më të mira</p>
-                <a href="#" class="btn">Shiko Produktet</a>
-            </div>
+    <div class="slide active">
+        <img src="../photos/hikvision-box-bullet-fisheye-pan-tilt-zoom-dome-cameras-sm.jpg" alt="Kamera">
+        <div class="slidee">
+            <h1>Siguro shtëpinë tënde sot</h1>
+            <p>Siguria më e mirë, çmimet më të mira</p>
+            <a href="#" class="btn">Shiko Produktet</a>
         </div>
-        <div class="slide">
-            <img src="../photos/55.jpg" alt="Kamera">
-            <div class="slidee">
-                <h1>Teknologji e avancuar</h1>
-                <p>Kamera dhe pajisje për mbrojtje të plotë</p>
-                <a href="#" class="btn">Shiko Produktet</a>
-            </div>
+    </div>
+    <div class="slide">
+        <img src="../photos/55.jpg" alt="Kamera">
+        <div class="slidee">
+            <h1>Teknologji e avancuar</h1>
+            <p>Kamera dhe pajisje për mbrojtje të plotë</p>
+            <a href="#" class="btn">Shiko Produktet</a>
         </div>
-        <div class="slide">
-            <img src="../photos/hikvision-CCTV.jpg" alt="Kamera">
-            <div class="slidee">
-                <h1>Mbështetje 24/7</h1>
-                <p>Gjithmon në dispozicion për çdo pyetje</p>
-                <a href="#" class="btn">Shiko Produktet</a>
-            </div>
+    </div>
+    <div class="slide">
+        <img src="../photos/hikvision-CCTV.jpg" alt="Kamera">
+        <div class="slidee">
+            <h1>Mbështetje 24/7</h1>
+            <p>Gjithmon në dispozicion për çdo pyetje</p>
+            <a href="#" class="btn">Shiko Produktet</a>
         </div>
-        <button class="prev" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="next" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
-    </section>
+    </div>
+    <button class="prev" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="next" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+</section>
 
-    <selection class="elektro-card">
-        <h2>Pse të zgjidhni ElektroHome</h2>
-        <div class="pse-te-zgjedhim">
-            <div class="pse">
-                <h3>Siguri Maksimale</h3>
-                <p>Pajisje orgjinale dhe teknologji e avancuar për mbrojtje totale</p>
-            </div>
-            <div class="pse">
-                <h3>Instalim Profesional</h3>
-                <p>Teknikët tanë sigurojnë montimi të shpejtë dhe të pastër</p>
-            </div>
-            <div class="pse">
-                <h3>Mbështetje 24/7</h3>
-                <p>Gjithmonë në dispozicion për çdo pyetje ose problem</p>
-            </div>
-        </div>
-    </selection>
 
-    <section class="produktet-slider">
-        <h2>Produktet më të kërkuara</h2>
-        <div class="produktett">
-            <div class="produktet-card">
-                <img src="../photos/camera-fixe-4mp-h265-audio-et-alarme-ir30-metres.jpg" alt="Kamer">
-                <h3>Kamerë Hikivision 4Mp</h3>
-                <p>189€</p>
-                <a href="#" class="prod-btn">Shiko</a>
+<section class="elektro-card">
+    <h2>Pse të zgjidhni ElektroHome</h2>
+    <div class="pse-te-zgjedhim">
+        <?php foreach($whyItems as $item): ?>
+            <div class="pse">
+                <h3><?= htmlspecialchars($item['title']); ?></h3>
+                <p><?= htmlspecialchars($item['description']); ?></p>
             </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+
+<section class="produktet-slider">
+    <h2>Produktet më të kërkuara</h2>
+    <div class="produktett">
+        <?php foreach($produkte as $p): ?>
             <div class="produktet-card">
-                <img src="../photos/tube-ip-anti-vandal-ir-40m-onvif-hikvision-poe-acusense-4k-uhd-8-megapixels-ds-2cd2086g2h-iu-camera-de-video-surveillance-ip.jpg" alt="Kamera">
-                <h3>Kamerë Hikivision 1080p IR Varifocal Outdoor Bullet IP</h3>
-                <p>269€</p>
-                <a href="#" class="prod-btn">Shiko</a>
+                <img src="../photos/<?= htmlspecialchars($p['foto']); ?>" alt="<?= htmlspecialchars($p['emri']); ?>">
+                <h3><?= htmlspecialchars($p['emri']); ?></h3>
+                <p><?= htmlspecialchars($p['cmimi']); ?>€</p>
+                <a href="produktet.php" class="prod-btn">Shiko</a>
             </div>
-            <div class="produktet-card">
-                <img src="../photos/images.jpg" alt="Kamera">
-                <h3>Hikivision Alarm System</h3>
-                <p>80€</p>
-                <a href="#" class="prod-btn">Shiko</a>
-            </div>
-            <div class="produktet-card">
-                <img src="../photos/images (1).jpg" alt="Kamera">
-                <h3>IP NVR Hikivision</h3>
-                <p>110€</p>
-                <a href="#" class="prod-btn">Shiko</a>
-            </div>
-        </div>
-    </section>
+        <?php endforeach; ?>
+    </div>
+</section>
 
 <?php
-    require_once 'footer.php';
+require_once 'footer.php';
 ?>

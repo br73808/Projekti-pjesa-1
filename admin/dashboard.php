@@ -3,7 +3,7 @@ session_start();
 require_once '../HTML/database.php';
 
 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
-    header("Location: ../login.php");
+    header("Location: ../HTML/login.php");
     exit;
 }
 
@@ -52,7 +52,7 @@ $messages = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 </p>
 
 <p style="text-align:center;">
-    <a href="../index.php">Kthehu në faqe kryesore</a>
+    <a href="../HTML/index.php">Kthehu në faqe kryesore</a>
 </p>
 
 

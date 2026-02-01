@@ -1,38 +1,34 @@
 <?php
 session_start();
+
 require_once "database.php";
+require_once "../classes/Auth.php";
 
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
 
-    if (empty($email) || empty($password)) {
-        $error = "Plotësoni email dhe password.";
-    } else {
-        $db = new Database();
-        $conn = $db->getConnection();
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
 
-        $sql = "SELECT user_id, password, isAdmin FROM user WHERE email = :email LIMIT 1";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([':email' => $email]);
+    $db = new Database();
+    $conn = $db->getConnection();
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $auth = new Auth($conn);
+    $result = $auth->login($email, $password);
 
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['user_id'];
-            $_SESSION['isAdmin'] = $user['isAdmin'];
+    if ($result['success']) {
+        $_SESSION['user_id'] = $result['user_id'];
+        $_SESSION['isAdmin'] = $result['isAdmin'];
 
-            if ((int)$user['isAdmin'] === 1) {
-                header("Location: admin/dashboard.php");
-            } else {
-                header("Location: index.php");
-            }
-            exit;
+        if ((int)$result['isAdmin'] === 1) {
+            header("Location: ../admin/dashboard.php");
         } else {
-            $error = "Email ose password i pasaktë.";
+            header("Location: index.php");
         }
+        exit;
+    } else {
+        $error = $result['message'];
     }
 }
 ?>
@@ -52,16 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="card">
     <h2>Kyçu</h2>
 
-
     <?php if (isset($_GET['registered'])): ?>
-        <p style="color: green; text-align:center;">
+        <p class="success">
             Regjistrimi u krye me sukses! Kyçu tani ✅
         </p>
     <?php endif; ?>
 
-    
     <?php if (!empty($error)): ?>
-        <p class="error" style="text-align:center;"><?= $error ?></p>
+        <p class="error"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
     <form method="POST" novalidate>

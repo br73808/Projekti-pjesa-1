@@ -12,8 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    /* ================= VALIDIM ================= */
-
     if (empty($emri) || empty($mbiemri) || empty($email) || empty($password)) {
         $error = "Ju lutem plotësoni të gjitha fushat.";
     }

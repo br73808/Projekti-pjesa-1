@@ -5,9 +5,15 @@ require_once 'header.php';
 $db = new Database();
 $conn = $db->getConnection();
 
-$stmt = $conn->prepare("SELECT * FROM about_content ORDER BY id ASC");
-$stmt->execute();
-$aboutItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmtAbout = $conn->prepare("SELECT * FROM about_content ORDER BY id ASC");
+$stmtAbout->execute();
+$aboutItems = $stmtAbout->fetchAll(PDO::FETCH_ASSOC);
+
+
+$stmtValues = $conn->prepare("SELECT * FROM about_values ORDER BY id ASC");
+$stmtValues->execute();
+$valuesItems = $stmtValues->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <section class="about-section">
@@ -16,31 +22,40 @@ $aboutItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="about-text">
             <h2><?= htmlspecialchars($item['title']) ?></h2>
             <p><?= nl2br(htmlspecialchars($item['content'])) ?></p>
+
+            <?php if(!empty($item['features'])): ?>
+            <div class="aboutt">
+                <?php 
+                $features = explode(",", $item['features']); 
+                foreach($features as $feature): ?>
+                    <div><i class="fa-solid fa-check"></i> <?= htmlspecialchars(trim($feature)) ?></div>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
         </div>
+
         <?php if(!empty($item['image'])): ?>
         <div class="about-img">
             <img src="../photos/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['title']) ?>">
         </div>
         <?php endif; ?>
+
         <?php endforeach; ?>
     </div>
 </section>
 
 <section class="values-container">
+    <?php foreach($valuesItems as $value): ?>
     <div class="values-box">
-        <i class="fa-solid fa-bullseye"></i>
-        <h3>Misioni</h3>
-        <p>Ofrojmë produkte sigurie moderne dhe të besueshme për çdo klient.</p>
+        <?php if(!empty($value['icon_class'])): ?>
+            <i class="<?= htmlspecialchars($value['icon_class']) ?>"></i>
+        <?php elseif(!empty($value['image'])): ?>
+            <img src="../photos/<?= htmlspecialchars($value['image']) ?>" alt="<?= htmlspecialchars($value['title']) ?>">
+        <?php endif; ?>
+        <h3><?= htmlspecialchars($value['title']) ?></h3>
+        <p><?= htmlspecialchars($value['description']) ?></p>
     </div>
-    <div class="values-box">
-        <i class="fa-solid fa-eye"></i>
-        <h3>Vizioni</h3>
-        <p>Të jemi lider në tregun e sigurisë dhe teknologjisë intelegjente.</p>
-    </div>
-    <div class="values-box">
-        <h3>Besimi</h3>
-        <p>Ndërtojmë marrëdhënie afatgjata me klientët tanë.</p>
-    </div>
+    <?php endforeach; ?>
 </section>
 
 <section class="patnerët-section">
@@ -48,10 +63,18 @@ $aboutItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <p>Ne bashkëpunojmë me kompani të besueshme dhe lider në teknologji</p>
 
     <div class="patnerët-container">
-        <div class="partner"><img src="../photos/HikVision_1.jpg" alt="Patner 1"></div>
-        <div class="partner"><img src="../photos/images.png" alt="Patner 2"></div>
-        <div class="partner"><img src="../photos/images 88.png" alt="Patner 3"></div>
-        <div class="partner"><img src="../photos/unipos.jpg" alt="Patner 4"></div>
+        <?php
+        $partners = [
+            ['image'=>'HikVision_1.jpg','alt'=>'Patner 1'],
+            ['image'=>'images.png','alt'=>'Patner 2'],
+            ['image'=>'images 88.png','alt'=>'Patner 3'],
+            ['image'=>'images (666.jpg','alt'=>'Patner 4']
+        ];
+        foreach($partners as $p): ?>
+        <div class="partner">
+            <img src="../photos/<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['alt']) ?>">
+        </div>
+        <?php endforeach; ?>
     </div>
 </section>
 

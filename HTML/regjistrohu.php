@@ -12,10 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c731a4495314782ad24c0a31312e420ae35e8390
     if (empty($emri) || empty($mbiemri) || empty($email) || empty($password)) {
         $error = "Ju lutem plotësoni të gjitha fushat.";
     }

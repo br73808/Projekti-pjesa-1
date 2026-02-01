@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'database.php';
+require_once 'Cart.php';
+require_once 'header.php';
 
 class Product {
     private $conn;
@@ -30,26 +32,14 @@ class Product {
 $db = new Database();
 $conn = $db->getConnection();
 $productObj = new Product($conn);
-
-if(!isset($_SESSION['cart'])){
-    $_SESSION['cart'] = [];
-}
+$cart = new Cart(); 
 
 if(isset($_POST['shto_shporte'])){
     $produkt_id = $_POST['produkt_id'];
     $produkt = $productObj->getProductById($produkt_id);
 
     if($produkt){
-        if(isset($_SESSION['cart'][$produkt_id])){
-            $_SESSION['cart'][$produkt_id]['qty']++;
-        } else {
-            $_SESSION['cart'][$produkt_id] = [
-                'emri'  => $produkt['emri'],
-                'cmimi' => $produkt['cmimi'],
-                'qty'   => 1,
-                'foto'  => $produkt['foto']
-            ];
-        }
+        $cart->add($produkt);
     }
     header("Location: produktet.php");
     exit;
@@ -66,8 +56,6 @@ $produkte = $productObj->getAllProducts();
     <link rel="stylesheet" href="../CSS/index.css">
 </head>
 <body>
-
-<?php require_once 'header.php'; ?>
 
 <section class="produktet-section">
     <h2>Produktet tona</h2>

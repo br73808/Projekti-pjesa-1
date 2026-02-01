@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php if (isset($_GET['registered'])): ?>
         <p class="success">
-            Regjistrimi u krye me sukses! Kyçu tani ✅
+            Regjistrimi u krye me sukses! Kyçu tani
         </p>
     <?php endif; ?>
 

@@ -1,31 +1,60 @@
 <?php
-    require_once 'header.php'
+session_start();
+require_once 'header.php';
+
+/* ===== FSHI PRODUKT NGA SHPORTA ===== */
+if(isset($_POST['remove'])){
+    $id = $_POST['produkt_id'];
+    unset($_SESSION['cart'][$id]);
+    header("Location: shporta.php");
+    exit;
+}
+
+$total = 0;
 ?>
-    <section class="shporta-section">
-        <h2>Shporta ime</h2>
-        <div class="shporta-container">
-            <div class="shporta-item">
-                <img src="../photos/images (2).jpg">
-            
-            <div>
-                <h4>Kamerë Sigurie</h4>
-                <p>120€</p>
-            </div>
-            <button class="remove">✖</button>
-            </div>
-            <div class="shporta-item">
-                <img src="../photos/images (1).jpg">
-                <div>
-                    <h4>Alarm Shtëpie</h4>
-                    <p>180€</p>
+
+<section class="shporta-section">
+    <h2>Shporta ime</h2>
+
+    <div class="shporta-container">
+
+        <?php if(!empty($_SESSION['cart'])): ?>
+
+            <?php foreach($_SESSION['cart'] as $id => $item): 
+                $subtotal = $item['cmimi'] * $item['qty'];
+                $total += $subtotal;
+            ?>
+                <div class="shporta-item">
+                    <!-- Foto placeholder -->
+                    <img src="../photos/no-image.png" alt="Produkt">
+
+                    <div>
+                        <h4><?= htmlspecialchars($item['emri']); ?></h4>
+                        <p>
+                            <?= $item['cmimi']; ?> € × <?= $item['qty']; ?>
+                        </p>
+                        <strong><?= $subtotal; ?> €</strong>
+                    </div>
+
+                    <form method="POST">
+                        <input type="hidden" name="produkt_id" value="<?= $id; ?>">
+                        <button type="submit" name="remove" class="remove">✖</button>
+                    </form>
                 </div>
-                <button class="remove">✖</button>
-            </div>
+            <?php endforeach; ?>
+
             <div class="shporta-total">
-                <h3>Totali: 300€</h3>
+                <h3>Totali: <?= $total; ?> €</h3>
                 <button class="checkout">Vazhdo Pagesën</button>
             </div>
-        </div>
-    </section>
+
+        <?php else: ?>
+            <p>Shporta është bosh 🛒</p>
+        <?php endif; ?>
+
+    </div>
+</section>
+
+<?php require_once 'footer.php'; ?>
 </body>
 </html>

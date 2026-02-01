@@ -864,3 +864,39 @@ footer{
         width: 60px;
     }
 }
+
+@media (max-width: 430px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 16px;
+    }
+
+    .logo {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .menu {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        padding-left: 0;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .menu li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 15px;
+    }
+}

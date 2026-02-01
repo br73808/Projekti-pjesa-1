@@ -49,7 +49,7 @@ if(isset($_POST['checkout'])){
 
                     <div>
                         <h4><?= htmlspecialchars($item['emri']); ?></h4>
-                        <p><?= $item['cmimi']; ?> € × <?= $item['qty']; ?></p>
+                        <p><?= $item['cmimi']; ?> € x <?= $item['qty']; ?></p>
                         <strong><?= $subtotal; ?> €</strong>
                     </div>
 

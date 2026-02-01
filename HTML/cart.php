@@ -7,7 +7,6 @@ class Cart {
         }
     }
 
-
     public function add($produkt) {
         $id = $produkt['produkt_id'];
         if(isset($_SESSION['cart'][$id])) {

@@ -15,14 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dergo'])) {
     $subject = trim($_POST['subject'] ?? '');
     $mesazhi = trim($_POST['mesazhi'] ?? '');
 
-    /* ===== VALIDIM BACK-END ===== */
     if (empty($emri) || empty($email) || empty($subject) || empty($mesazhi)) {
         $error = "Ju lutem plotësoni të gjitha fushat.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Email nuk është valid.";
     } else {
 
-        /* ===== INSERT NË DB ===== */
         $sql = "INSERT INTO kontakti (emri_mbiemri, email, subjekti, mesazhi)
                 VALUES (:emri, :email, :subject, :mesazhi)";
         $stmt = $conn->prepare($sql);

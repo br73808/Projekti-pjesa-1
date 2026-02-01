@@ -51,7 +51,7 @@ $aboutItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="partner"><img src="../photos/HikVision_1.jpg" alt="Patner 1"></div>
         <div class="partner"><img src="../photos/images.png" alt="Patner 2"></div>
         <div class="partner"><img src="../photos/images 88.png" alt="Patner 3"></div>
-        <div class="partner"><img src="../photos/images (666).jpg" alt="Patner 4"></div>
+        <div class="partner"><img src="../photos/unipos.jpg" alt="Patner 4"></div>
     </div>
 </section>
 

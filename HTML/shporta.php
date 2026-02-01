@@ -1,15 +1,16 @@
 <?php
 session_start();
+require_once 'cart.php';
 require_once 'header.php';
 
+$cart = new Cart();
+
+
 if(isset($_POST['remove'])){
-    $id = $_POST['produkt_id'];
-    unset($_SESSION['cart'][$id]);
+    $cart->remove($_POST['produkt_id']);
     header("Location: shporta.php");
     exit;
 }
-
-$total = 0;
 ?>
 
 <section class="shporta-section">
@@ -17,20 +18,16 @@ $total = 0;
 
     <div class="shporta-container">
 
-        <?php if(!empty($_SESSION['cart'])): ?>
-
-            <?php foreach($_SESSION['cart'] as $id => $item): 
+        <?php if(!$cart->isEmpty()): ?>
+            <?php foreach($cart->getItems() as $id => $item): 
                 $subtotal = $item['cmimi'] * $item['qty'];
-                $total += $subtotal;
             ?>
                 <div class="shporta-item">
                     <img src="../photos/<?= htmlspecialchars($item['foto']); ?>" alt="<?= htmlspecialchars($item['emri']); ?>">
 
                     <div>
                         <h4><?= htmlspecialchars($item['emri']); ?></h4>
-                        <p>
-                            <?= $item['cmimi']; ?> € × <?= $item['qty']; ?>
-                        </p>
+                        <p><?= $item['cmimi']; ?> € × <?= $item['qty']; ?></p>
                         <strong><?= $subtotal; ?> €</strong>
                     </div>
 
@@ -42,7 +39,7 @@ $total = 0;
             <?php endforeach; ?>
 
             <div class="shporta-total">
-                <h3>Totali: <?= $total; ?> €</h3>
+                <h3>Totali: <?= $cart->getTotal(); ?> €</h3>
                 <button class="checkout">Vazhdo Pagesën</button>
             </div>
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'database.php';
-require_once 'Cart.php';
+require_once 'cart.php';
 require_once 'header.php';
 
 class Product {

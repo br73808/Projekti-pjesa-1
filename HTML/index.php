@@ -1,5 +1,18 @@
 <?php
-    require_once 'header.php';
+require_once 'database.php';
+
+$db = new Database();
+$conn = $db->getConnection();
+
+$stmtSlider = $conn->prepare("SELECT * FROM home_content WHERE section = 'slider'");
+$stmtSlider->execute();
+$sliders = $stmtSlider->fetchAll(PDO::FETCH_ASSOC);
+
+$stmtWhy = $conn->prepare("SELECT * FROM home_content WHERE section = 'why'");
+$stmtWhy->execute();
+$whyItems = $stmtWhy->fetchAll(PDO::FETCH_ASSOC);
+
+require_once 'header.php';
 ?>
 
 <section class="slider">

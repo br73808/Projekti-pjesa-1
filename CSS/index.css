@@ -343,7 +343,6 @@ footer{
     background: #094ea3;
 }
 
-/* ERRORS & SUCCESS */
 .error{
     color: red;
     font-size: 13px;
@@ -356,7 +355,6 @@ footer{
     margin-top: 10px;
 }
 
-/* LINK */
 .card p{
     margin-top: 20px;
     font-size: 14px;
@@ -874,7 +872,6 @@ footer{
     }
 }
 
-/* MOBILE */
 @media (max-width: 576px) {
 
     .logo {

@@ -748,3 +748,119 @@ footer{
 #buttoni:hover{
     background: #004a80;
 }
+
+@media (max-width: 992px) {
+
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .slider {
+        height: 380px;
+    }
+
+    .slidee h1 {
+        font-size: 2rem;
+    }
+
+    .slidee p {
+        font-size: 1.1rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img img {
+        max-width: 100%;
+    }
+
+    .aboutt {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .kontakt-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produktet-section {
+        padding: 60px 20px;
+    }
+
+    .patnerët-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .slider {
+        height: 300px;
+    }
+
+    .slidee h1 {
+        font-size: 1.6rem;
+    }
+
+    .slidee p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+
+    .pse-te-zgjedhim {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produktett {
+        gap: 20px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .patnerët-container {
+        grid-template-columns: 1fr;
+    }
+
+    .kontakt-form,
+    .kontakt-info {
+        width: 100%;
+    }
+
+    .shporta-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .shporta-item img {
+        width: 60px;
+    }
+}

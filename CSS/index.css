@@ -755,6 +755,71 @@ footer{
     background: #004a80;
 }
 
+.regjistrohu-container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6f8;
+    padding: 20px;
+}
+
+.regjister-form{
+    background: white;
+    width: 100%;
+    max-width: 380px;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.regjister-form h2{
+    text-align: center;
+    margin-bottom: 25px;
+    color: #076bbd;
+    font-size: 26px;
+}
+
+.regjister-form label{
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.regjister-form .input{
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.regjister-form .input:focus{
+    outline: none;
+    border-color: #076bbd;
+}
+
+#buttoni{
+    width: 100%;
+    padding: 13px;
+    background: #076bbd;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#buttoni:hover{
+    background: #004a80;
+}
+
+
 @media (max-width: 992px) {
 
     .navbar {

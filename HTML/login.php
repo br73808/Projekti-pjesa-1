@@ -2,7 +2,7 @@
 session_start();
 
 require_once "database.php";
-require_once "../classes/Auth.php";
+require_once "../classes/User.php";
 
 $error = "";
 
@@ -11,24 +11,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    $db = new Database();
-    $conn = $db->getConnection();
-
-    $auth = new Auth($conn);
-    $result = $auth->login($email, $password);
-
-    if ($result['success']) {
-        $_SESSION['user_id'] = $result['user_id'];
-        $_SESSION['isAdmin'] = $result['isAdmin'];
-
-        if ((int)$result['isAdmin'] === 1) {
-            header("Location: ../admin/dashboard.php");
-        } else {
-            header("Location: index.php");
-        }
-        exit;
+    if (empty($email) || empty($password)) {
+        $error = "Ju lutem plotësoni të gjitha fushat.";
     } else {
-        $error = $result['message'];
+        $db = new Database();
+        $conn = $db->getConnection();
+
+        $user = new User($conn);
+
+        if ($user->login($email, $password)) {
+
+            $_SESSION['user_id'] = $user->user_id;
+            $_SESSION['isAdmin'] = $user->isAdmin;
+            $_SESSION['emri'] = $user->emri;
+            $_SESSION['mbiemri'] = $user->mbiemri;
+
+            if ((int)$user->isAdmin === 1) {
+                header("Location: ../admin/dashboard.php");
+            } else {
+                header("Location: index.php");
+            }
+            exit;
+        } else {
+            $error = "Email ose password i gabuar!";
+        }
     }
 }
 ?>

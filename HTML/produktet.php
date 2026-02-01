@@ -2,7 +2,6 @@
 session_start();
 require_once 'database.php';
 
-
 class Product {
     private $conn;
 
@@ -10,7 +9,6 @@ class Product {
         $this->conn = $db;
     }
 
-  
     public function getAllProducts(){
         $sql = "SELECT p.*, u.emri AS user_emri, u.mbiemri AS user_mbiemri 
                 FROM produkte p
@@ -29,11 +27,9 @@ class Product {
     }
 }
 
-
 $db = new Database();
 $conn = $db->getConnection();
 $productObj = new Product($conn);
-
 
 if(!isset($_SESSION['cart'])){
     $_SESSION['cart'] = [];
@@ -48,16 +44,16 @@ if(isset($_POST['shto_shporte'])){
             $_SESSION['cart'][$produkt_id]['qty']++;
         } else {
             $_SESSION['cart'][$produkt_id] = [
-                'emri' => $produkt['emri'],
+                'emri'  => $produkt['emri'],
                 'cmimi' => $produkt['cmimi'],
-                'qty'   => 1
+                'qty'   => 1,
+                'foto'  => $produkt['foto']
             ];
         }
     }
     header("Location: produktet.php");
     exit;
 }
-
 
 $produkte = $productObj->getAllProducts();
 ?>
@@ -80,22 +76,18 @@ $produkte = $productObj->getAllProducts();
         <?php if(count($produkte) > 0): ?>
             <?php foreach($produkte as $p): ?>
                 <div class="produktet-card">
-                   
                     <img src="../photos/<?= htmlspecialchars($p['foto']); ?>" alt="<?= htmlspecialchars($p['emri']); ?>">
 
                     <h3><?= htmlspecialchars($p['emri']); ?></h3>
                     <p><?= htmlspecialchars($p['pershkrimi']); ?></p>
                     <span><?= htmlspecialchars($p['cmimi']); ?> €</span>
 
-                   
                     <?php if(!empty($p['pdf'])): ?>
                         <p><a href="../pdf/<?= htmlspecialchars($p['pdf']); ?>" target="_blank">Shiko PDF</a></p>
                     <?php endif; ?>
 
-                    
                     <p>Shtuar nga: <?= htmlspecialchars($p['user_emri'] . ' ' . $p['user_mbiemri']); ?></p>
 
-                 
                     <form method="POST">
                         <input type="hidden" name="produkt_id" value="<?= $p['produkt_id']; ?>">
                         <button type="submit" name="shto_shporte">Shto në shportë</button>
@@ -109,6 +101,5 @@ $produkte = $productObj->getAllProducts();
 </section>
 
 <?php require_once 'footer.php'; ?>
-
 </body>
 </html>

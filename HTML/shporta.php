@@ -2,7 +2,6 @@
 session_start();
 require_once 'header.php';
 
-/* ===== FSHI PRODUKT NGA SHPORTA ===== */
 if(isset($_POST['remove'])){
     $id = $_POST['produkt_id'];
     unset($_SESSION['cart'][$id]);
@@ -25,8 +24,7 @@ $total = 0;
                 $total += $subtotal;
             ?>
                 <div class="shporta-item">
-                    <!-- Foto placeholder -->
-                    <img src="../photos/no-image.png" alt="Produkt">
+                    <img src="../photos/<?= htmlspecialchars($item['foto']); ?>" alt="<?= htmlspecialchars($item['emri']); ?>">
 
                     <div>
                         <h4><?= htmlspecialchars($item['emri']); ?></h4>
